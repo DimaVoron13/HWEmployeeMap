@@ -1,6 +1,9 @@
 package HWEmployeeMap.HWEmployee;
+
 import java.util.Objects;
+
 public class Employee {
+
     private String firstName;
     private String lastName;
     private static int countId = 0;
@@ -16,13 +19,19 @@ public class Employee {
     public String getFirstName() {
         return this.firstName;
     }
+
     public String getLastName() {
         return this.lastName;
     }
-    public Integer getId() { return this.id; }
+
+    public Integer getId() {
+        return this.id;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -31,14 +40,20 @@ public class Employee {
     public String toString() {
         return this.firstName + " " + this.lastName + " ";
     }
+
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) { return true; }
-        if (this.hashCode() != obj.hashCode()) { return false; }
+        if (this == obj) {
+            return true;
+        }
+        if (this.hashCode() != obj.hashCode()) {
+            return false;
+        }
         if (this.getClass() != obj.getClass() || obj == null) return false;
         return (this.firstName.equals(((Employee) obj).getFirstName()) &&
                 this.lastName.equals(((Employee) obj).getLastName()));
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName);

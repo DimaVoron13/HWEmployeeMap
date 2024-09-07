@@ -1,4 +1,5 @@
 package HWEmployeeMap.HWEmployee;
+
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -30,7 +31,9 @@ public class EmployeeServiceImpl {
         Employee temp = new Employee(firstName, lastName);
         if (!employees.containsKey(temp)) {
             throw new EmployeeNotExistException();
-        } else { return "Сотрудник " + temp.toString() + ", id = " + employees.get(temp) + " находится в штате."; }
+        } else {
+            return "Сотрудник " + temp.toString() + ", id = " + employees.get(temp) + " находится в штате.";
+        }
     }
 
     public String delEmployee(String firstName, String lastName) {
@@ -43,7 +46,9 @@ public class EmployeeServiceImpl {
         }
     }
 
-    public Map listOfEmployee() { return employees; }
+    public Map listOfEmployee() {
+        return employees;
+    }
 
     public void employeesAbOvo() {
         Employee temp = new Employee("Андрицкая", "Светлана");
@@ -62,5 +67,7 @@ public class EmployeeServiceImpl {
         buildEmployee(temp);
     }
 
-    public void buildEmployee(Employee temp) { employees.put(temp, temp.getId()); }
+    public void buildEmployee(Employee temp) {
+        employees.put(temp, temp.getId());
+    }
 }

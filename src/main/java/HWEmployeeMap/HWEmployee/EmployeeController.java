@@ -1,4 +1,5 @@
 package HWEmployeeMap.HWEmployee;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +11,7 @@ import java.util.Map;
 @RequestMapping("/person")
 public class EmployeeController {
     EmployeeServiceImpl serv = new EmployeeServiceImpl();
+
     {
         serv.employeesAbOvo();
     }
@@ -17,7 +19,7 @@ public class EmployeeController {
     @GetMapping("/add")
     public String addPerson(@RequestParam("firstName") String firstName,
                             @RequestParam("lastName") String lastName) {
-        try{
+        try {
             return serv.addEmployee(firstName, lastName);
         } catch (EmployeeAlreadyAddedException e) {
             return "Такой сотрудник уже существует.";
@@ -27,6 +29,7 @@ public class EmployeeController {
             return "BadRequestException";
         }
     }
+
     @GetMapping("/del")
     public String delPerson(@RequestParam("firstName") String firstName,
                             @RequestParam("lastName") String lastName) {
@@ -36,6 +39,7 @@ public class EmployeeController {
             return "Такого сотрудника в штате нет.";
         }
     }
+
     @GetMapping("/find")
     public String findPerson(@RequestParam("firstName") String firstName,
                              @RequestParam("lastName") String lastName) {
@@ -45,8 +49,9 @@ public class EmployeeController {
             return "Такого сотрудника в штате нет.";
         }
     }
+
     @GetMapping("/list")
-    public Map listEmployee(){
+    public Map listEmployee() {
         return serv.listOfEmployee();
     }
 }
